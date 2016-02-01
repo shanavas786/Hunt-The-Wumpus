@@ -1,3 +1,2 @@
-# javagame
-javagame
+# Hunt The Wumpus
 ==========
