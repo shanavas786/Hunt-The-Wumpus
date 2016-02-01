@@ -14,13 +14,14 @@ public class Log {
 	private static OUTTO mode = OUTTO.FILE;
 
 	private static String filename = "TestLog.txt";
-	
+
 	static {
-//CODE HERE.
-//THINK OF THIS AS A CONSTRUCTOR FOR STATIC VARIABLES (i.e. log)
-
+		try {
+			log = new FileWriter(filename);
+		} catch (IOException ex) {
+			mode = OUTTO.CONSOLE;
+		}
 	}
-
 
 	public static void println(String output) {
 			print(output+"\n");
@@ -28,9 +29,12 @@ public class Log {
 
 
 	public static void print(String output) {
-		if (mode==OUTTO.FILE) { //(fileOut) {
-//CODE HERE
-
+		if (mode==OUTTO.FILE) { 
+			try{
+				log.write(output);
+			} catch (IOException ex) {
+				mode = OUTTO.CONSOLE;
+			}
 		} else if (mode==OUTTO.CONSOLE) {
 			System.out.print(output);
 		}  // else do nothing
