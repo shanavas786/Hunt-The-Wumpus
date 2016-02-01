@@ -50,7 +50,8 @@ public class Game {
 	public static void main(String[] args) {
 	
 		// Direct the Logger to output to file
-		Log.setFileOut();
+		//Log.setFileOut();
+		Log.setConsoleOut();
 		// or to turn off Logging,  Log.setNullOut();
 		
 
@@ -107,4 +108,3 @@ public class Game {
 		Log.close();
 	}
 }
-
